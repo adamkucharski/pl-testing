@@ -14,19 +14,19 @@ library(epitools)
 # Load data ---------------------------------------------------------------
 
 # Read in incidence data
-incidence_data <- read_csv("data_out/incidence_data.csv")
-incidence_data_lft <- read_csv("data_out/incidence_data_lft.csv")
+incidence_data <- read_csv("data/incidence_data.csv")
+incidence_data_lft <- read_csv("data/incidence_data_lft.csv")
 
 # Load Ct data
-ct_data <- read_csv("data_out/ct_values.csv")
+ct_data <- read_csv("data/ct_values.csv")
 
 # Load variant-specific Ct distributions
-first_test_wt <- read_csv("data_out/first_test_wt.csv")
-first_test_alpha <- read_csv("data_out/first_test_alpha.csv")
+first_test_wt <- read_csv("data/first_test_wt.csv")
+first_test_alpha <- read_csv("data/first_test_alpha.csv")
 
 # Load PCR vs LFT comparison data
-proportion_data_pcr <- read_csv("data_out/proportion_data_pcr.csv")
-proportion_data_lft <- read_csv("data_out/proportion_data_lft.csv")
+proportion_data_pcr <- read_csv("data/proportion_data_pcr.csv")
+proportion_data_lft <- read_csv("data/proportion_data_lft.csv")
 
 # ONS community infection survey estimated prevalence by age
 # Source: Abbott & Funk, 2022: https://www.medrxiv.org/content/10.1101/2022.03.29.22273101v1
@@ -103,7 +103,7 @@ graphics::text(x=275,y=34,labels="Three individuals reinfected\n in Delta wave",
 
 title(LETTERS[2],adj=0)
 
-dev.copy(png,paste0("outputs/ct_dynamics.png"),units="cm",width=15,height=20,res=200)
+dev.copy(png,paste0("outputs/ct_dynamics.png"),units="cm",width=15,height=20,res=300)
 dev.off()
   
 # Get variant Ct distributions -------------------------------------------------------------------
@@ -121,7 +121,7 @@ title(LETTERS[1],adj=0)
 
 hist(first_test_alpha$CT_value,xlab="Ct value",main="Alpha",prob=F,breaks=break_n)
 title(LETTERS[2],adj=0)
-dev.copy(png,paste0("outputs/Ct_period.png"),units="cm",width=12,height=10,res=200)
+dev.copy(png,paste0("outputs/Ct_period.png"),units="cm",width=12,height=10,res=300)
 dev.off()
 
 
@@ -143,7 +143,7 @@ points(proportion_data_lft$Days_Since_First_Positive,proportion_data_lft$Proport
        pch=19,col="dark orange")
 lines(proportion_data_lft$Days_Since_First_Positive,proportion_data_lft$Proportion_Positive,col="dark orange",lwd=0.5)
 
-dev.copy(png,paste0("outputs/PCR_vs_LFT.png"),units="cm",width=12,height=10,res=200)
+dev.copy(png,paste0("outputs/PCR_vs_LFT.png"),units="cm",width=12,height=10,res=300)
 dev.off()
 
 
