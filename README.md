@@ -1,5 +1,5 @@
 # pl-testing
-Analysis of Premier testing data
+Analysis of Premier League testing data
 
 ### Quick start guide
 
